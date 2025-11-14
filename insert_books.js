@@ -40,7 +40,7 @@ const books = [
     price: 9.99,
     in_stock: true,
     pages: 180,
-    publisher: 'Charles Scribner\'s Sons'
+    publisher: "Charles Scribner's Sons"
   },
   {
     title: 'Brave New World',
@@ -159,7 +159,7 @@ async function insertBooks() {
     const result = await collection.insertMany(books);
     console.log(`${result.insertedCount} books were successfully inserted into the database`);
 
-    // Display the inserted books
+    // Display inserted books
     console.log('\nInserted books:');
     const insertedBooks = await collection.find({}).toArray();
     insertedBooks.forEach((book, index) => {
@@ -179,20 +179,11 @@ async function insertBooks() {
 insertBooks().catch(console.error);
 
 /*
- * Example MongoDB queries you can try after running this script:
+ * Example MongoDB queries:
  *
- * 1. Find all books:
- *    db.books.find()
- *
- * 2. Find books by a specific author:
- *    db.books.find({ author: "George Orwell" })
- *
- * 3. Find books published after 1950:
- *    db.books.find({ published_year: { $gt: 1950 } })
- *
- * 4. Find books in a specific genre:
- *    db.books.find({ genre: "Fiction" })
- *
- * 5. Find in-stock books:
- *    db.books.find({ in_stock: true })
- */ 
+ * db.books.find()
+ * db.books.find({ author: "George Orwell" })
+ * db.books.find({ published_year: { $gt: 1950 } })
+ * db.books.find({ genre: "Fiction" })
+ * db.books.find({ in_stock: true })
+ */
